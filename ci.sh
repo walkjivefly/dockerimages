@@ -28,7 +28,7 @@ function run () {
     sleep 10
     docker ps -a
 
-    container_id=$(docker ps -f status=running -f name="$1"-"$2")
+    container_id=$(docker ps -q -f status=running -f name="$1"-"$2")
 
     if [ "${container_id}" ]; then
       echo "${container_id}"
